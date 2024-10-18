@@ -33,7 +33,7 @@ namespace coo {
 		T& operator*() const;
 		T* operator->();
 
-		friend ostream& operator<<(ostream& out, const coopointer& other) const;
+		//friend ostream& operator<<(ostream& out, const coopointer& other) const;
 	};
 }
 
