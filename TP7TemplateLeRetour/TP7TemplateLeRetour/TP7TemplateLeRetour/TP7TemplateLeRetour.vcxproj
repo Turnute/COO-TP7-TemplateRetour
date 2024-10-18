@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="coopointer.cpp" />
     <ClCompile Include="TP7TemplateLeRetour.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="coopointer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
