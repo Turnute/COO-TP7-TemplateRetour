@@ -1,5 +1,7 @@
-#pragma once
+//  Tourenne    Audebert
+//  Vincent     Dorine
 
+#pragma once
 #include <iostream>
 
 namespace coo
@@ -35,6 +37,7 @@ namespace coo
 
 			coorefcounter& operator=(const coorefcounter& other) {
 				this->cmpt = other->cmpt;
+				return *this;
 			}
 
 			bool operator==(const int& i) const {
@@ -50,7 +53,7 @@ namespace coo
 
 		coopointer(T* t) : cmpt(new coorefcounter(1)), ptr(t) {}
 
-		coopointer(const coopointer& other) {
+		coopointer(const coopointer<T>& other) {
 			++(*other.cmpt);
 			cmpt = other.cmpt;
 			ptr = other.ptr;
@@ -79,27 +82,57 @@ namespace coo
 			return ptr;
 		}
 
-		coopointer& operator=(const coopointer& other) {
+		coopointer<T>& operator=(const coopointer<T>& other) {
 			if (ptr != other.ptr)
 			{
+				--(*cmpt);
 				// Cas spécial : l'élément qui prend 
 				// l'affectation était le dernier alloué à sa zone mémoire
-				if (*cmpt == 1)
+				if (*cmpt == 0)
 				{
 					delete cmpt;
 					delete ptr;
 				}
 				// Sinon, on décrémente simplement son compteur
-				else
-					--(*cmpt);
 
 				// Affectation en surface
-				++(*other.cmpt);
 				cmpt = other.cmpt;
 				ptr = other.ptr;
+				++(*cmpt);
 			}
 
 			return *this;
+		}
+
+	};
+
+	template <typename T>
+	class coounique
+	{
+		T* ptr;
+
+		// Méthodes à interdire : définies en private
+		coounique();
+		coounique(const coounique&);
+
+		// Operateurs à interdire
+		coounique& operator=(const coounique&);
+	
+	public:
+		// Constructeur & Destructeur ================
+		coounique(T* t) : ptr(t) { }
+
+		~coounique(){
+			delete ptr;
+		}
+
+		// Operateurs ================
+		T& operator*() const {
+			return *ptr;
+		}
+
+		T* operator->() {
+			return ptr;
 		}
 
 	};
