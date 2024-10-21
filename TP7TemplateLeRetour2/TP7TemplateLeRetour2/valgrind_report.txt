@@ -1,33 +1,35 @@
-==5758== Memcheck, a memory error detector
-==5758== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==5758== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==5758== Command: ./TP7TemplateLeRetour2
-==5758== 
+==8863== Memcheck, a memory error detector
+==8863== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==8863== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==8863== Command: ./TP7TemplateLeRetour2
+==8863== 
+c1 count : 1
+c2 count : 2, c2 value : 2
+c3 count : 2, c3 value : 2
+c4 count : 2, c4 value : 3
+c5 count : 2, c5 value : 3
 
-valgrind:  Fatal error at startup: a function redirection
-valgrind:  which is mandatory for this platform-tool combination
-valgrind:  cannot be set up.  Details of the redirection are:
-valgrind:  
-valgrind:  A must-be-redirected function
-valgrind:  whose name matches the pattern:      strlen
-valgrind:  in an object with soname matching:   ld-linux-x86-64.so.2
-valgrind:  was not found whilst processing
-valgrind:  symbols from the object with soname: ld-linux-x86-64.so.2
-valgrind:  
-valgrind:  Possible fixes: (1, short term): install glibc's debuginfo
-valgrind:  package on this machine.  (2, longer term): ask the packagers
-valgrind:  for your Linux distribution to please in future ship a non-
-valgrind:  stripped ld.so (or whatever the dynamic linker .so is called)
-valgrind:  that exports the above-named function using the standard
-valgrind:  calling conventions for this platform.  The package you need
-valgrind:  to install for fix (1) is called
-valgrind:  
-valgrind:    On Debian, Ubuntu:                 libc6-dbg
-valgrind:    On SuSE, openSuSE, Fedora, RHEL:   glibc-debuginfo
-valgrind:  
-valgrind:  Note that if you are debugging a 32 bit process on a
-valgrind:  64 bit system, you will need a corresponding 32 bit debuginfo
-valgrind:  package (e.g. libc6-dbg:i386).
-valgrind:  
-valgrind:  Cannot continue -- exiting now.  Sorry.
+c1 count : 4, c1 value : 2
+c2 count : 4, c2 value : 2
+c3 count : 4, c3 value : 2
+c4 count : 4, c4 value : 2
+c5 count : 1, c5 value : 3
 
+c5 count : 5, c5 value : 2
+c1 unique : 2
+c2 unique : 3
+
+c1 unique apres transfert : 3
+c2 unique apres transfert : nullptr
+
+c1 unique apres transfert : nullptr
+c3 unique apres transfert : 3
+==8863== 
+==8863== HEAP SUMMARY:
+==8863==     in use at exit: 0 bytes in 0 blocks
+==8863==   total heap usage: 9 allocs, 9 frees, 76,828 bytes allocated
+==8863== 
+==8863== All heap blocks were freed -- no leaks are possible
+==8863== 
+==8863== For lists of detected and suppressed errors, rerun with: -s
+==8863== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

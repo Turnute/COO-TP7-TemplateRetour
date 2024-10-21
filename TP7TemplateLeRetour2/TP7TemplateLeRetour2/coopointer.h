@@ -49,7 +49,7 @@ namespace coo
 		T* ptr;
 	public:
 		// Constructeurs & Destructeur ================
-		coopointer() : cmpt(new coorefcounter), ptr(nullptr) {}
+		coopointer() : cmpt(new coorefcounter(1)), ptr(nullptr) {}
 
 		coopointer(T* t) : cmpt(new coorefcounter(1)), ptr(t) {}
 

@@ -54,7 +54,7 @@ void testCoopointer()
 
 	// Affichage Console
 	cout << "c5 count : " << c5.count() << ", c5 value : " << *c5 << endl;
-    cout << "test2 : " << *test2 << endl << endl;       // Vérification de la destruction du pointeur
+    //cout << "test2 : " << *test2 << endl << endl;       // Vérification de la destruction du pointeur dans la console, inutile avec valgrind
 }
 
 void testCoounique()
