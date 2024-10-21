@@ -69,11 +69,22 @@ void testCoounique()
 
 	// Affichage Console
     cout << "c1 unique : " << *c1 << endl;
-    cout << "c2 unique : " << *c2 << endl;
+    cout << "c2 unique : " << *c2 << endl << endl;
         
-    // c1 = c2;                     // Interdit
+    c1 = c2;                        // c2 devient nullptr, c1 devient 3.    
+
+	// Affichage Console
+	cout << "c1 unique apres transfert : " << *c1 << endl;
+    cout << "c2 unique apres transfert : " << c2.isEmpty() << endl << endl;
+
+    coo::coounique<int> c3(c1);     // c1 devient nullptr, c3 est initialisé à 3.
+
+	// Affichage Console
+	cout << "c1 unique apres transfert : " << c1.isEmpty() << endl;
+	cout << "c3 unique apres transfert : " << *c3 << endl;
+
+
     // coo::coounique<int> c3;      // Interdit
-    // coo::coounique<int> c3(c1);  // Interdit
 
     // Limitations de la conception
     // coo::coounique<int> c3(test2);           // Possible, mais provoque des erreurs !

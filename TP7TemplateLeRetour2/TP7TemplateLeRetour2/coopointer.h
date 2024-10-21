@@ -113,17 +113,28 @@ namespace coo
 
 		// Méthodes à interdire : définies en private
 		coounique();
-		coounique(const coounique&);
 
-		// Operateurs à interdire
-		coounique& operator=(const coounique&);
 	
 	public:
 		// Constructeur & Destructeur ================
 		coounique(T* t) : ptr(t) { }
 
+		coounique(coounique<T>& other)
+		{
+			ptr = other.ptr;
+			other.ptr = nullptr;
+		}
+
 		~coounique(){
 			delete ptr;
+		}
+
+		// Méthodes ================
+		std::string isEmpty()
+		{
+			if (ptr)
+				return "not empty";
+			else return "nullptr";
 		}
 
 		// Operateurs ================
@@ -133,6 +144,16 @@ namespace coo
 
 		T* operator->() {
 			return ptr;
+		}
+
+		coounique<T>& operator=(coounique<T>& other)
+		{
+			delete ptr;
+
+			ptr = other.ptr;
+			other.ptr = nullptr;
+
+			return *this;
 		}
 
 	};
