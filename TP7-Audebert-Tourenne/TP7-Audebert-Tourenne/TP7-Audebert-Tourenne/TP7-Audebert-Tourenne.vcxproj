@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{01050fe5-db8e-43d2-bf0f-12708085ea6b}</ProjectGuid>
-    <RootNamespace>TP7TemplateLeRetour2</RootNamespace>
+    <ProjectGuid>{2613a8da-67ba-4a1b-81b1-b55490d83140}</ProjectGuid>
+    <RootNamespace>TP7AudebertTourenne</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,8 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="coopointer.cpp" />
-    <ClCompile Include="TP7TemplateLeRetour2.cpp" />
+    <ClCompile Include="TP7-Audebert-Tourenne.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="coopointer.h" />
